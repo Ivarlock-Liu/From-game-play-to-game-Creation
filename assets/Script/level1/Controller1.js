@@ -16,6 +16,10 @@ cc.Class({
             default:null,
             type:cc.Prefab
         },
+        tokenPrefab:{
+            default:null,
+            type:cc.Prefab
+        },
         spriteDuration:0,
         ground:{
             default:null,
@@ -59,6 +63,10 @@ cc.Class({
             default:null,
             type:cc.Node
         },
+        folder:{
+            default:null,
+            type:cc.Node
+        }
     },
 
     // use this for initialization
@@ -69,18 +77,11 @@ cc.Class({
         this.gameButton.active=false;
         this.groundY=this.ground.y+this.ground.height/2;
         this.spawnNewSprite();
-        
         this.score=0;
-        this.timer=0;
     },
 
     // called every frame, uncomment this function to activate update callback
     update: function (dt) {
-        if(this.length>0 && this.timer>this.spriteDuration){
-            this.loseScore();
-            this.spawnNewSprite();
-            return;
-        }
         if(this.length==0){
             this.player.stopAllActions();
             this.player.getComponent("Player").enabled=false;
@@ -88,18 +89,18 @@ cc.Class({
             this.scoreDisplay.enabled=false;
             this.collectionDisplay.enabled=false;
             this.feedbackDisplay.enabled=true;
-            this.nextButton.active=true;
+            
             if(this.score>=40){
                 this.feedbackDisplay.string="Congratulation! you collected all picture resources and you got "+this.score.toString()+
                 " scores! Now you can play the Minesweeper or enter next level for create UI!";
                 this.gameButton.active=true;
+                this.nextButton.active=true;
             }else{
-                this.feedbackDisplay.string="That is a pity! you collected all picture resources but you just got "+this.score.toString()+
-                " scores! Now you can replay the game or enter next level for create UI!";
+                this.feedbackDisplay.string="That is a pity! You just got "+this.score.toString()+
+                " scores! To enter next level, you have to gain more than 40 scores! Now you can replay the game!";
                 this.replayButton.active=true;
             }
         }
-        this.timer+=dt;
     },
     
     gainScore:function(){
@@ -113,16 +114,15 @@ cc.Class({
         this.scoreDisplay.string="Score: "+this.score.toString();
     },
     
-    delayOver:function(){
-        this.unscheduleUpdate();
-        
-    },
+    // bindSprite:function(){
+    //     var sprite=this.player.getComponentInChildren(cc.Sprite);   
+    //     sprite.spriteFrame=this.res[this.randomNum];
+    // },
+    
     delaySpawn:function(){
-        this.timer=-1;
         this.scheduleOnce(this.spawnNewSprite, 1);
     },
     spawnNewSprite:function(){
-        this.timer=0;
         var newSprite=cc.instantiate(this.spritePrefab);
         
         this.randomNum=Math.floor(cc.random0To1()*this.length);
@@ -144,7 +144,13 @@ cc.Class({
         randX=cc.randomMinus1To1()*maxX;
         return cc.p(randX,randY);
     },
-    
+    spawnNewToken:function(){
+        var token=cc.instantiate(this.tokenPrefab);
+        token.getComponent(cc.Sprite).spriteFrame=this.res[this.randomNum];   
+        token.setPosition(this.player.position);
+        token.getComponent('Token').game=this;
+        this.node.addChild(token);
+    },
     nextLevel: function(){
         cc.director.loadScene('level2');    
     },

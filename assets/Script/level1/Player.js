@@ -49,16 +49,20 @@ cc.Class({
             onKeyPressed:function(keyCode,event){
                 switch(keyCode){
                     case cc.KEY.a:
-                        var realUrl=cc.url.raw("Texture/alien.png");
-                        var texture = cc.textureCache.addImage(realUrl);
-                        self.getComponent(cc.Sprite).spriteFrame.setTexture(texture);
+                        // var realUrl=cc.url.raw("Texture/alien.png");
+                        // var texture = cc.textureCache.addImage(realUrl);
+                        // self.getComponent(cc.Sprite).spriteFrame.setTexture(texture);
+                        self.node.scaleX=1;
+                        //self.game.token.scaleX=1;
                         self.accLeft=true;
                         self.accRight=false;
                         break;
                     case cc.KEY.d:
-                        var realUrl=cc.url.raw("Texture/alien2.png");
-                        var texture = cc.textureCache.addImage(realUrl);
-                        self.getComponent(cc.Sprite).spriteFrame.setTexture(texture);
+                        // var realUrl=cc.url.raw("Texture/alien2.png");
+                        // var texture = cc.textureCache.addImage(realUrl);
+                        // self.getComponent(cc.Sprite).spriteFrame.setTexture(texture);
+                        self.node.scaleX=-1;
+                        //self.game.token.scaleX=-1;
                         self.accLeft = false;
                         self.accRight = true;
                         break;
