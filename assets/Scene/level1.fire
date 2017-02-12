@@ -196,7 +196,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "97944a05-f0ab-4a68-8a26-e68539fe9ab3"
+      "__uuid__": "7609585e-3836-4be0-a8d6-c1db67663732"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -383,7 +383,10 @@
     "jumpHeight": 200,
     "jumpDuration": 0.3,
     "maxMoveSpeed": 400,
-    "accel": 350
+    "accel": 350,
+    "jumpAudio": {
+      "__uuid__": "4c868258-f873-4508-9393-1b6863403c15"
+    }
   },
   {
     "__type__": "cc.Node",
@@ -2496,6 +2499,9 @@
     },
     "folder": {
       "__id__": 53
+    },
+    "scoreAudio": {
+      "__uuid__": "b134fe78-03ee-4bcd-b9cb-f55759df8055"
     }
   },
   {

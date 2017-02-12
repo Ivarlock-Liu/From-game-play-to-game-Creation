@@ -67,6 +67,10 @@ cc.Class({
         folder:{
             default:null,
             type:cc.Node
+        },
+        scoreAudio:{
+            default:null,
+            url:cc.AudioClip
         }
     },
 
@@ -107,7 +111,7 @@ cc.Class({
     gainScore:function(){
       this.score+=5;
       this.scoreDisplay.string="Score: "+this.score.toString();
-        
+      cc.audioEngine.playEffect(this.scoreAudio,false);
     },
     
     loseScore:function(){
