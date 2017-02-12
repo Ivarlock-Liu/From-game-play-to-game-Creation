@@ -1,3 +1,4 @@
+var introduction = require('IntroductionController');
 cc.Class({
     extends: cc.Component,
 
@@ -152,7 +153,8 @@ cc.Class({
         this.node.addChild(token);
     },
     nextLevel: function(){
-        cc.director.loadScene('level2');    
+        introduction.myState=introduction.STATE.level2_1;
+        cc.director.loadScene('Introduction');    
     },
     
     replay: function(){

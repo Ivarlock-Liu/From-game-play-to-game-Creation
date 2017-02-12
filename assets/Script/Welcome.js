@@ -21,7 +21,7 @@ cc.Class({
     },
     
     startGame: function(){
-        cc.director.loadScene('level1');    
+        cc.director.loadScene('Introduction');    
     },
     
     quit: function(){

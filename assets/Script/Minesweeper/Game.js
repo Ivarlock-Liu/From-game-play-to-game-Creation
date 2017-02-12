@@ -8,7 +8,7 @@ const TOUCH_STATE = cc.Enum({
     LEFT:0,
     RIGHT:1,
 });
-
+var introduction = require('IntroductionController');
 cc.Class({
     extends: cc.Component,
 
@@ -196,6 +196,11 @@ cc.Class({
             // this.bombNum++;
             this.newGame();
         }
+    },
+    
+    enterLevel2:function(){
+        introduction.myState=introduction.STATE.level2_1;
+        cc.director.loadScene("Introduction");
     }
 
 });

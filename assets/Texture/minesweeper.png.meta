@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "60397ace-4908-418e-a787-9ebfda6d2121",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "minesweeper": {
+      "ver": "1.0.3",
+      "uuid": "eb9931d1-364d-4bcf-85e1-1bff0d096613",
+      "rawTextureUuid": "60397ace-4908-418e-a787-9ebfda6d2121",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 901,
+      "height": 561,
+      "rawWidth": 901,
+      "rawHeight": 561,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
