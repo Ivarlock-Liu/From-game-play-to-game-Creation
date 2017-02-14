@@ -97,7 +97,8 @@
       "__id__": 1
     },
     "_enabled": true,
-    "flyDuration": 1
+    "flyDuration": 1,
+    "pickRadius": 19
   },
   {
     "__type__": "cc.PrefabInfo",

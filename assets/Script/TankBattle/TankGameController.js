@@ -82,23 +82,36 @@ cc.Class({
             this.spawnNewBullet();
             this.timer=0;
         }
-        var playerTilePos = this.getTilePosByCanvasPos(this.player.getPosition());
+        var playerTilePos1 = this.getTilePosByCanvasPos(cc.p(this.player.getPosition().x - 19,this.player.getPosition().y - 19));
+        var playerTilePos2 = this.getTilePosByCanvasPos(cc.p(this.player.getPosition().x + 19,this.player.getPosition().y - 19));
+        var playerTilePos3 = this.getTilePosByCanvasPos(cc.p(this.player.getPosition().x - 19,this.player.getPosition().y + 19));
+        var playerTilePos4 = this.getTilePosByCanvasPos(cc.p(this.player.getPosition().x + 19,this.player.getPosition().y + 19));
+        //var playerTilePos = this.getTilePosByCanvasPos(this.player.getPosition());
         switch(this.player.rotation){
             case 0:
-                var nextPos = cc.p(playerTilePos.x, playerTilePos.y - 1);
-                this.player.getComponent("TankMovementController").canUp = !this.getTileCollidable(this.metaLayer, nextPos);
+                var nextPos1 = cc.p(playerTilePos1.x, playerTilePos1.y - 1);
+                var nextPos2 = cc.p(playerTilePos2.x, playerTilePos2.y - 1);
+                this.player.getComponent("TankMovementController").canUp = !(this.getTileCollidable(this.metaLayer, nextPos1) 
+                                                                            || this.getTileCollidable(this.metaLayer, nextPos2)); 
+                                                                            
                 break;
             case 90:
-                var nextPos = cc.p(playerTilePos.x + 1, playerTilePos.y);
-                this.player.getComponent("TankMovementController").canRight = !this.getTileCollidable(this.metaLayer, nextPos);
+                var nextPos1 = cc.p(playerTilePos1.x + 1, playerTilePos1.y);
+                var nextPos3 = cc.p(playerTilePos3.x + 1, playerTilePos3.y);
+                this.player.getComponent("TankMovementController").canRight = !(this.getTileCollidable(this.metaLayer, nextPos1) 
+                                                                            || this.getTileCollidable(this.metaLayer, nextPos3));
                 break;
             case 180:
-                var nextPos = cc.p(playerTilePos.x, playerTilePos.y + 1);
-                this.player.getComponent("TankMovementController").canDown = !this.getTileCollidable(this.metaLayer, nextPos);
+                var nextPos3 = cc.p(playerTilePos3.x, playerTilePos3.y + 1);
+                var nextPos4 = cc.p(playerTilePos4.x, playerTilePos4.y + 1);
+                this.player.getComponent("TankMovementController").canDown = !(this.getTileCollidable(this.metaLayer, nextPos3) 
+                                                                            || this.getTileCollidable(this.metaLayer, nextPos4));
                 break;
             case 270:
-                var nextPos = cc.p(playerTilePos.x - 1, playerTilePos.y);
-                this.player.getComponent("TankMovementController").canLeft = !this.getTileCollidable(this.metaLayer, nextPos);
+                var nextPos2 = cc.p(playerTilePos2.x - 1, playerTilePos2.y);
+                var nextPos4 = cc.p(playerTilePos4.x - 1, playerTilePos4.y);
+                this.player.getComponent("TankMovementController").canLeft = !(this.getTileCollidable(this.metaLayer, nextPos2) 
+                                                                            || this.getTileCollidable(this.metaLayer, nextPos4));
                 break;
         }
     },
@@ -141,12 +154,23 @@ cc.Class({
         else
             return false;
     },
+	getTileType:function(layer,tile){
+	    if(tile.x<=19 && tile.x>=0 && tile.y>=0 && tile.y <= 15){
+            var prop = this.map.getPropertiesForGID(layer.getTileGIDAt(tile));
+            if(prop)
+                return prop.type;
+            else
+                return null;
+	    }
+	    return null;
+    },
     spawnNewBullet:function(){
         var newBullet=cc.instantiate(this.bullet);
         this.node.addChild(newBullet);
         newBullet.setPosition(this.player.position);
         newBullet.getComponent('Bullet').game=this;
-        switch(this.player.rotation){
+        newBullet.rotation = this.player.rotation;
+        switch(newBullet.rotation){
             case 0:
                 newBullet.runAction(newBullet.getComponent('Bullet').moveUp);
                 break;
@@ -160,6 +184,7 @@ cc.Class({
                 newBullet.runAction(newBullet.getComponent('Bullet').moveLeft);
                 break;
         }
+        
     },
     setInputControl:function(){
         var self = this;

@@ -4,6 +4,7 @@ const STATE=cc.Enum({
    level1_3:3,
    level1_4:4,
    level2_1:5,
+   level2_2:6,
    
 });
 
@@ -85,6 +86,8 @@ cc.Class({
             this.state1_4();
         }else if(controller.myState==STATE.level2_1){
             this.state2_1();
+        }else if(controller.myState==STATE.level2_2){
+            this.state2_2();
         }
     },
     
