@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="16" tilewidth="40" tileheight="40" nextobjectid="5">
+ <tileset firstgid="1" name="tiles" tilewidth="40" tileheight="40" tilecount="4" columns="4">
+  <image source="tiles.png" width="160" height="40"/>
+  <tile id="0">
+   <properties>
+    <property name="canDestroy" type="bool" value="false"/>
+    <property name="canPass" type="bool" value="true"/>
+    <property name="canPassBullet" type="bool" value="true"/>
+    <property name="type" value="grass"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="canDestroy" type="bool" value="false"/>
+    <property name="canPass" type="bool" value="false"/>
+    <property name="canPassBullet" type="bool" value="true"/>
+    <property name="type" value="water"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="canDestroy" type="bool" value="false"/>
+    <property name="canPass" type="bool" value="false"/>
+    <property name="canPassBullet" type="bool" value="false"/>
+    <property name="type" value="steel"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="canDestroy" type="bool" value="true"/>
+    <property name="canPass" type="bool" value="false"/>
+    <property name="canPassBullet" type="bool" value="false"/>
+    <property name="type" value="wall"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="barriers" width="20" height="16">
+  <data encoding="base64" compression="zlib">
+   eJylk4EKgDAIRF35/9/Qp8aoAznu3KIDKZ093WYRj8ZrVWms0yCrHCe1fkZcLpc1c1V+Njmupqtb9/KnJ7BgSTHHUhxm1R7hHwvrmJDjOalZYR6EvXUzkuZdrVWe64XjKgc+81xtFec72f1W9eJ4/IzQs9cx4Y/w59H9Y+5s+M53mYpVe10xv/Buv3EOFw==
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object id="1" name="enemy2" x="606" y="7" width="27" height="27"/>
+  <object id="2" name="enemy1" x="204" y="7" width="30" height="29"/>
+  <object id="3" name="player" x="449" y="606" width="24" height="19"/>
+ </objectgroup>
+</map>

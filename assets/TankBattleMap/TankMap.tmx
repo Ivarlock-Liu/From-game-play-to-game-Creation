@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="16" tilewidth="40" tileheight="40" nextobjectid="4">
+ <tileset firstgid="1" name="tiles" tilewidth="40" tileheight="40" tilecount="4" columns="4">
+  <image source="tiles.png" width="160" height="40"/>
+ </tileset>
+ <tileset firstgid="5" name="meta_tiles" tilewidth="40" tileheight="40" tilecount="4" columns="4">
+  <image source="meta_tiles.png" width="160" height="40"/>
+  <tile id="0">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="meta" width="20" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjZWBgYKUyhgFS+ehgpJtHKaCVebjMJCYtEEoz1DCPWoDW5g229DZUzKMmBgDJYgKz
+  </data>
+ </layer>
+ <layer name="barrier" width="20" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjZmBgYKYyhgEWKIYBJijGJc8IxTAw0s2jFNDKPEY0DAMsWDAMMGHBtDKPWoDW5hFKL7jCY6SbR00MAGnkAcE=
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object id="1" name="player" x="370" y="567" width="19" height="23"/>
+  <object id="2" name="enemy1" x="250" y="50" width="19" height="19"/>
+  <object id="3" name="enemy2" x="532" y="50" width="19" height="19"/>
+ </objectgroup>
+</map>
