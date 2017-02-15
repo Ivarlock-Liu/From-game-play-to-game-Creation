@@ -51,26 +51,26 @@ cc.Class({
             controller.myState=STATE.level1_1;
         }
         
-        this.str1 = 'This game aim to teach you how to build games using Cocos Creator.'+
-                    '\n\n There are three procedures in building a game using Cocos Creator.'+
+        this.str1 = 'This game aims to make you be familiar with the procedures of building games using Cocos Creator.'+
+                    '\n\nGenerally, there are three procedures in building a game using Cocos Creator.'+
                     '\n\n1. Collect/Create game resources'+
                     '\n2. Create user interface'+
-                    '\n3. write some scripts and bind them with game components'+
+                    '\n3. Write some scripts and bind them with game components'+
                     "\n\nPress 'Enter' to continue.";
         this.str2 = 'This game has three levels.'+
-                    ' In each level, you will simulate one of the three procedures to build three demo games.'+
-                    "\n\nIn level1, you will simulate collecting images resources to build 'Minesweeper'."+
-                    "The following is the demo interface."+
+                    ' In each level, you will create a part of demo game by playing a game.'+
+                    "\n\nIn level1, you need to collect images resources to build 'Minesweeper'."+
+                    "The following is the interface of Minesweeper."+
                     "\n\nPress 'Enter' to continue.";
         this.str3 = "In order to build 'Minesweeper', you have to collect a lot of image resources, such as numbers, boom, flag, etc."+
-                    '\n\nFollowing is the image resources that you need to collect.'+
+                    '\n\nThe followings are the image resources that you need to collect.'+
                     "\n\nPress 'Enter' to continue.";
-        this.str4 = "In level1, you will become a jumping alien in this level, and you need to collect all image resources of minesweeper."+
+        this.str4 = "Then you will become a jumping alien in this level, and you need to collect all image resources of minesweeper."+
                     "\n\nEach image resource will display for 3s, then it will disappear and you will lose 5 scores."+
                     "\n\nWhen you collect one resource, you gain 5 scores."+
-                    "\n\nAt the end of this level, if you gain more than 40 scores, you will be able to play minesweeper as prize. Otherwise, you have to play again."+
+                    "\n\nAt the end of this level, if you gain more than 40 scores, you will be able to play minesweeper as a reward. Otherwise, you have to play again."+
                     "\n\nPress 'Enter' to try level1, Let's simulate this process now!";
-        this.str5 = "In level2, you will do something.";
+        this.str2_1 = "In level2, you need to create the user interface of 'Tank battle'.";
     },
 
     // called every frame, uncomment this function to activate update callback
@@ -176,7 +176,7 @@ cc.Class({
     },
     
     state2_1:function(){
-        this.text.string=this.str5;
+        this.text.string=this.str2_1;
         var self=this;
         cc.eventManager.addListener({event:cc.EventListener.KEYBOARD,
             onKeyPressed:function(keyCode,event){
