@@ -1,3 +1,4 @@
+var introduction = require('IntroductionController');
 cc.Class({
 	extends: cc.Component,
 
@@ -292,6 +293,7 @@ cc.Class({
 		cc.director.loadScene("Tankbattle");
 	},
 	enterLevel2: function () {
-		cc.director.loadScene("level3");
+		introduction.myState=introduction.STATE.level3_1;
+		cc.director.loadScene("Introduction");
 	},
 });

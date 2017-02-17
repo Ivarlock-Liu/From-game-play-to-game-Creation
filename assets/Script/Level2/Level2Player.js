@@ -28,6 +28,7 @@ cc.Class({
         
         
         this.dir=0;//1 is left, 2 is right
+		this.isTaking = false;
         this.setInputControl();
     },
 
@@ -35,10 +36,13 @@ cc.Class({
     update: function (dt) {
         switch(this.dir){
             case 1:
-                this.node.x -= this.speed*dt;
+				if(this.node.x >= -400)
+					this.node.x -= this.speed*dt;
                 break;
             case 2:
-                this.node.x += this.speed*dt;
+				if(this.node.x <= 100)
+					this.node.x += this.speed*dt;
+				break;
         }
     },
     

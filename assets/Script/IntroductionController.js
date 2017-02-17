@@ -5,6 +5,7 @@ const STATE=cc.Enum({
    level1_4:4,
    level2_1:5,
    level2_2:6,
+   level3_1:7,
    
 });
 
@@ -47,7 +48,7 @@ cc.Class({
     onLoad: function () {
         this.minesweeper.enabled=false;
         this.minesweeperRes.enabled=false;
-        if(controller.myState!=STATE.level2_1){
+        if(controller.myState!=STATE.level2_1 &&controller.myState!=STATE.level3_1){
             controller.myState=STATE.level1_1;
         }
         
@@ -71,6 +72,8 @@ cc.Class({
                     "\n\nAt the end of this level, if you gain more than 40 scores, you will be able to play minesweeper as a reward. Otherwise, you have to play again."+
                     "\n\nPress 'Enter' to try level1, Let's simulate this process now!";
         this.str2_1 = "In level2, you need to create the user interface of 'Tank battle'.";
+		this.str2_2 = "In level2, you need to create the user interface of 'Tank battle'.";
+		this.str3_1 = "In level3, you need to create the user interface of 'Tank battle'.";
     },
 
     // called every frame, uncomment this function to activate update callback
@@ -88,6 +91,8 @@ cc.Class({
             this.state2_1();
         }else if(controller.myState==STATE.level2_2){
             this.state2_2();
+        }else if(controller.myState==STATE.level3_1){
+            this.state3_1();
         }
     },
     
@@ -188,7 +193,45 @@ cc.Class({
             onKeyReleased: function(keyCode, event) {
                 switch(keyCode) {
                     case cc.KEY.enter:
+                        controller.myState=STATE.level2_2;
+                        break;
+                }
+            }
+        },self.node);
+    },
+	state2_2:function(){
+        this.text.string=this.str2_2;
+        var self=this;
+        cc.eventManager.addListener({event:cc.EventListener.KEYBOARD,
+            onKeyPressed:function(keyCode,event){
+                switch(keyCode){
+                    case cc.KEY.enter:
+                        break;
+                }
+            },
+            onKeyReleased: function(keyCode, event) {
+                switch(keyCode) {
+                    case cc.KEY.enter:
                         cc.director.loadScene('level2');
+                        break;
+                }
+            }
+        },self.node);
+    },
+	state3_1:function(){
+        this.text.string=this.str3_1;
+        var self=this;
+        cc.eventManager.addListener({event:cc.EventListener.KEYBOARD,
+            onKeyPressed:function(keyCode,event){
+                switch(keyCode){
+                    case cc.KEY.enter:
+                        break;
+                }
+            },
+            onKeyReleased: function(keyCode, event) {
+                switch(keyCode) {
+                    case cc.KEY.enter:
+                        cc.director.loadScene('level3');
                         break;
                 }
             }

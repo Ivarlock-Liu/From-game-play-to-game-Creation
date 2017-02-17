@@ -12,30 +12,33 @@ cc.Class({
         //    readonly: false,    // optional, default is false
         // },
         // ...
-        res:{
-            default:[],
-            type:[cc.SpriteFrame],
-        },
         downDuration:0,
+		index:-1,
+		pickRadius:0,
     },
 
     // use this for initialization
     onLoad: function () {
-        var self = this;
-        var randomNum=Math.floor(cc.random0To1()*this.res.length);
-        if(randomNum==this.res.length)
-        randomNum=this.res.length;
-
-        this.node.getComponent(cc.Sprite).spriteFrame=this.res[randomNum];
-        var down = cc.moveBy(this.downDuration,cc.p(0,-640));
-        var callback=cc.callFunc(function(){
-            self.node.destroy();
-        },this);
-        this.node.runAction(cc.sequence(down,callback));
+		
     },
 
     // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
-
-    // },
+    update: function (dt) {
+		if(this.getPlayerDistance()<this.pickRadius){
+            this.onPicked();
+            return;
+        }
+    },
+	getPlayerDistance:function(){
+        var playerPos=this.game.player.getPosition();
+        var dist=cc.pDistance(this.node.position,playerPos);
+        return dist;
+    },
+    
+    onPicked:function(){
+		//this.node.stopAllActions();
+		this.game.token.getComponent(cc.Sprite).spriteFrame = this.node.getComponent(cc.Sprite).spriteFrame;
+		this.node.destroy();
+		this.game.player.getComponent("Level2Player").isTaking = true;
+    }
 });
