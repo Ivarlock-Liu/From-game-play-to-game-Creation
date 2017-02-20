@@ -114,10 +114,12 @@ cc.Class({
 		switch(this.correctNum){
 			case this.map1Num:
 				this.correctNum++;
+				this.mapDisplay.string = "Map 2:";
 				this.loadMap2();
 				break;
 			case this.map1Num+this.map2Num+1:
 				this.correctNum++;
+				this.mapDisplay.string = "Map 3:";
 				this.loadMap3();
 				break;
 			case this.map1Num+this.map2Num+this.map3Num+2:

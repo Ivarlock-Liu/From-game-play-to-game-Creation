@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "0a0f87a0-2960-4b8d-9ee9-3e9c463ea9bd",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "tankBattle": {
+      "ver": "1.0.3",
+      "uuid": "7d304a15-7c2e-4202-93d7-a369fd78d3ad",
+      "rawTextureUuid": "0a0f87a0-2960-4b8d-9ee9-3e9c463ea9bd",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 962,
+      "height": 679,
+      "rawWidth": 962,
+      "rawHeight": 679,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
