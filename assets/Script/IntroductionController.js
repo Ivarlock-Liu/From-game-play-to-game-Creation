@@ -7,6 +7,9 @@ const STATE=cc.Enum({
    level2_2:6,
    level2_3:7,
    level3_1:8,
+   level3_2:9,
+   level3_3:10,
+   level4_1:11,
    
 });
 
@@ -69,8 +72,8 @@ cc.Class({
 		this.tankbattleRes1.enabled = false;
 		this.tankbattleRes2.enabled = false;
 		this.tankbattleRes3.enabled = false;
-        if(controller.myState!=STATE.level2_1 &&controller.myState!=STATE.level3_1){
-            controller.myState=STATE.level1_1;
+        if(controller.myState!=STATE.level2_1 && controller.myState!=STATE.level3_1  && controller.myState!=STATE.level4_1){
+            controller.myState=STATE.level3_1;
         }
         
         this.str1 = 'This game aims to make you be familiar with the procedures of building games using Cocos Creator.'+
@@ -104,6 +107,7 @@ cc.Class({
                     "\n\nThere is a time limit of 300 seconds, if you complete creating the three maps in 300s, you will be able to play tankbattle as a reward. Otherwise, you have to play again."+
                     "\n\nPress 'Enter' to try level2, Let's create the user interface now!";
 		this.str3_1 = "In level3, you need to create the user interface of 'Tank battle'.";
+		this.str4_1 = "In level4, you need to do something about key bindings";
     },
 
     // called every frame, uncomment this function to activate update callback
@@ -125,6 +129,12 @@ cc.Class({
             this.state2_3();
         }else if(controller.myState==STATE.level3_1){
             this.state3_1();
+        }else if(controller.myState==STATE.level3_2){
+            this.state3_2();
+        }else if(controller.myState==STATE.level3_3){
+            this.state3_3();
+        }else if(controller.myState==STATE.level4_1){
+            this.state4_1();
         }
     },
     
@@ -295,5 +305,24 @@ cc.Class({
                 }
             }
         },self.node);
-    }
+    },
+    state4_1:function(){
+        this.text.string=this.str4_1;
+        var self=this;
+        cc.eventManager.addListener({event:cc.EventListener.KEYBOARD,
+            onKeyPressed:function(keyCode,event){
+                switch(keyCode){
+                    case cc.KEY.enter:
+                        break;
+                }
+            },
+            onKeyReleased: function(keyCode, event) {
+                switch(keyCode) {
+                    case cc.KEY.enter:
+                        cc.director.loadScene('level4');
+                        break;
+                }
+            }
+        },self.node);
+    },
 });
