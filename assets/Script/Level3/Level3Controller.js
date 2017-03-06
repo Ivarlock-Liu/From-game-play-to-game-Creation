@@ -428,8 +428,8 @@ cc.Class({
         },self.node);
     },
     
-     next:function(){
+    next:function(){
         introduction.myState=introduction.STATE.level4_1;
         cc.director.loadScene("Introduction");  
-     },
+    },
 });

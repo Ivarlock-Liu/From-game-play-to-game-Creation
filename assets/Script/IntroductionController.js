@@ -8,8 +8,7 @@ const STATE=cc.Enum({
    level2_3:7,
    level3_1:8,
    level3_2:9,
-   level3_3:10,
-   level4_1:11,
+   level4_1:10,
    
 });
 
@@ -106,7 +105,14 @@ cc.Class({
                     "\n\nWhen you throw one tile into correct position, you gain 1 score. Otherwise, you lose 1 score."+
                     "\n\nThere is a time limit of 300 seconds, if you complete creating the three maps in 300s, you will be able to play tankbattle as a reward. Otherwise, you have to play again."+
                     "\n\nPress 'Enter' to try level2, Let's create the user interface now!";
-		this.str3_1 = "In level3, you need to create the user interface of 'Tank battle'.";
+		this.str3_1 = "In level3, you will be familiar with 6 basic actions in Cocos Creator. " +
+		              "\n\nThey are Move, Rotate, Scale, Skew, Jump and Blink actions. " +
+		              "\n\nFor each action, you will be able to view the code and see what happens by execting the code."+
+		              "\n\nPress 'Enter' to continue.";
+		this.str3_2 = "There are two modes in this level, they are test mode and play mode. " +
+		              "\n\nIn test mode, you will be able to view the code and see what happens by execting the code when you click the corresponding buttons. "+
+		              "\n\nAfter you are familiar with these actions, you can enter play mode, in which you could test if you really know what these actions can do. " +
+		              "\n\nPress 'Enter' to try level3, Let's check these actions now!";
 		this.str4_1 = "In level4, you need to do something about key bindings";
     },
 
@@ -131,8 +137,6 @@ cc.Class({
             this.state3_1();
         }else if(controller.myState==STATE.level3_2){
             this.state3_2();
-        }else if(controller.myState==STATE.level3_3){
-            this.state3_3();
         }else if(controller.myState==STATE.level4_1){
             this.state4_1();
         }
@@ -289,6 +293,25 @@ cc.Class({
     },
 	state3_1:function(){
         this.text.string=this.str3_1;
+        var self=this;
+        cc.eventManager.addListener({event:cc.EventListener.KEYBOARD,
+            onKeyPressed:function(keyCode,event){
+                switch(keyCode){
+                    case cc.KEY.enter:
+                        break;
+                }
+            },
+            onKeyReleased: function(keyCode, event) {
+                switch(keyCode) {
+                    case cc.KEY.enter:
+                        controller.myState=STATE.level3_2;
+                        break;
+                }
+            }
+        },self.node);
+    },
+    state3_2:function(){
+        this.text.string=this.str3_2;
         var self=this;
         cc.eventManager.addListener({event:cc.EventListener.KEYBOARD,
             onKeyPressed:function(keyCode,event){
