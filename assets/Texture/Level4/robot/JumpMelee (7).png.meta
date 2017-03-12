@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "f96bae20-73aa-489e-93f0-7c8fec1e59ed",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "JumpMelee (7)": {
+      "ver": "1.0.3",
+      "uuid": "56e87ac0-7ebe-49ed-a9eb-304b60b0c852",
+      "rawTextureUuid": "f96bae20-73aa-489e-93f0-7c8fec1e59ed",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1.5,
+      "offsetY": -0.5,
+      "trimX": 104,
+      "trimY": 58,
+      "width": 362,
+      "height": 441,
+      "rawWidth": 567,
+      "rawHeight": 556,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

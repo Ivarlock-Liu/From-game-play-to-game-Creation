@@ -17,7 +17,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         var anim = this.getComponent(cc.Animation);
-        var animState = anim.getAnimationState('test');
+        var animState = anim.getAnimationState('folderMove');
         animState.speed = 0.5;
         animState.repeatCount = Infinity;
 
