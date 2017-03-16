@@ -62,7 +62,7 @@ cc.Class({
 		this.tankbattleRes2.enabled = false;
 		this.tankbattleRes3.enabled = false;
         if(controller.myState!=STATE.level2_1 && controller.myState!=STATE.level3_1  && controller.myState!=STATE.level4_1){
-            controller.myState=STATE.level3_1;
+            controller.myState=STATE.level1_1;
         }
         
         this.str1 = 'This game aims to make you be familiar with the procedures of building games using Cocos Creator.'+

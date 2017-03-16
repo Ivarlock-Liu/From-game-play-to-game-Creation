@@ -34,8 +34,10 @@ cc.Class({
         let idle = this.myAnimator.getAnimationState('robotIdle');
         let run = this.myAnimator.getAnimationState('robotRun');
         let shoot = this.myAnimator.getAnimationState('robotShoot');
-        shoot.speed = 2;
+        let hurt = this.myAnimator.getAnimationState('robotHurt');
+        shoot.speed = 1;
         idle.speed = 0.5;
+        hurt.speed = 0.3;
 
         this.manager = cc.director.getCollisionManager();
         this.manager.enabled = true;
@@ -76,6 +78,8 @@ cc.Class({
         }
         else{
             cc.eventManager.pauseTarget(this.node);
+            this.game.unschedule(this.game.updateTime);
+            this.game.zombieContainer.active = false;
             this.stopMove();
             this.myAnimator.play("robotDead");
             cc.log("you dead!");
@@ -83,6 +87,7 @@ cc.Class({
     },
     resumeListener:function(){
         this.manager.enabled = true;
+        this.myAnimator.play("robotIdle");
         cc.eventManager.resumeTarget(this.node);
     },
     stopMove:function(){

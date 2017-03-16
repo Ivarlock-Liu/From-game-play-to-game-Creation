@@ -25,9 +25,10 @@ cc.Class({
 
     // },
     onCollisionEnter: function (other, self) {
+        this.manager.enabled = false;
         if(other.tag == 3){
-            this.takeDamage();
-            this.manager.enabled = false;
+            if(!this.die.isPlaying)
+                this.takeDamage();
         }  
     },
     takeDamage:function(){

@@ -37,7 +37,16 @@ cc.Class({
         zombieContainer:{
             default:null,
             type:cc.Node
-        }
+        },
+        playBtn:{
+            default:null,
+            type:cc.Node
+        },
+        timeDisplay: {
+		    default:null,
+			type: cc.Label
+		},
+        timeLimit: 0,
     },
 
     // use this for initialization
@@ -60,11 +69,14 @@ cc.Class({
         this.bird.getComponent("bird").game = this;
         this.bird.active = false;
         this.zombieContainer.active = false;
+        this.playBtn.active = true;
+        this.timer = 0;
+        this.timeDisplay.enabled = false;
     },
 
     // called every frame, uncomment this function to activate update callback
     update: function (dt) {
-        //cc.log(this.myCurrentBtn);
+        
     },
     
     init:function(){
@@ -94,6 +106,7 @@ cc.Class({
     },
     bindKey:function(btnNum,key){
         key.getComponent("keyProp").bindBtn = btnNum;
+        key.getComponent("keyProp").keyChar = key.getComponent("keyProp").getKey();
         switch(btnNum){
             case 1:
                 this.myUp = key.getComponent("keyProp").keyValue;
@@ -180,13 +193,27 @@ cc.Class({
             this.robot.active = true;
             this.textLabel.enabled = false;
             this.codeLabel.enabled = false;
+            this.playBtn.active = false;
+            this.timer = 0;
+            this.timeDisplay.enabled = true;
             for(var i in this.btnIcons){
                 this.btnIcons[i].active = false;
             }
             this.bird.active = true;
-            this.zombieContainer.active = true;        
+            this.zombieContainer.active = true;    
+            this.schedule(this.updateTime,1);    
         }else{
             this.textLabel.string = "You have to bind all keys that needed!";
         }
     },
+    updateTime:function(){
+        this.timeDisplay.string = "Time Limit: " + (this.timeLimit--).toString();
+        if(this.timeLimit <= 0){
+            this.unschedule(this.updateTime);
+            this.win();
+        }
+    },
+    win:function(){
+
+    }
 });

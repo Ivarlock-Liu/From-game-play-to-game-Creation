@@ -26,9 +26,9 @@ cc.Class({
         this.keyChar = "";
     },
     
-    getKey:function(keyValue){
+    getKey:function(){
         var key = "";
-        switch(keyValue-65){
+        switch(this.keyValue - 65){
             case 0:
                 key = "a";
                 break;

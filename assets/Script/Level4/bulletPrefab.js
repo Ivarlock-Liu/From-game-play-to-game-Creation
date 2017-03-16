@@ -13,8 +13,15 @@ cc.Class({
             this.node.scaleX *= -1;
         }
         this.distance = 0;
+        this.manager = cc.director.getCollisionManager();
+        this.manager.enabled = true;
     },
-
+    onCollisionEnter: function (other, self) {
+        if(other.tag == 2){
+            //this.manager.enabled = false;
+            this.node.destroy();
+        }
+    },
     // called every frame, uncomment this function to activate update callback
     update: function (dt) {
         this.distance += Math.floor(Math.abs(this.speed*dt));
