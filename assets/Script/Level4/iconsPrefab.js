@@ -21,7 +21,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        this.btnNum = Math.floor(cc.random0To1() * 5);
+        this.btnNum = Math.floor(cc.random0To1() * 4);
         this.node.getComponent(cc.Sprite).spriteFrame = this.sprites[this.btnNum];
         var randomKey =  Math.floor(cc.random0To1() * 26);
         while(this.game.keys[randomKey].getComponent("keyProp").bindBtn!=0){

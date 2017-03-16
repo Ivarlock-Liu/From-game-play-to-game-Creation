@@ -1,0 +1,79 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "zombieWalk",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.3333333333333333,
+  "sample": 30,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "3df0caa3-4ce3-44a8-a4ac-5eb3d896e36a"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "169b9dbf-858c-4654-8947-9d3835d3bb68"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "28e505cb-f7cc-469c-b985-9ed8255d4942"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "06b0c725-8bc1-437e-98df-e0afbbb02b34"
+            }
+          },
+          {
+            "frame": 0.13333333333333333,
+            "value": {
+              "__uuid__": "c80a1941-c3f1-4f75-9b6b-94711ebf099f"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "53ccaef9-96df-4b85-a2af-c7b8ee28b3de"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "e618450c-5333-4649-bdec-9e7a67d8e7a5"
+            }
+          },
+          {
+            "frame": 0.23333333333333334,
+            "value": {
+              "__uuid__": "fdb58fc5-573b-46ee-97cb-7721e8fd9cba"
+            }
+          },
+          {
+            "frame": 0.26666666666666666,
+            "value": {
+              "__uuid__": "4cbda207-3156-4ed4-8343-4430af4c9a41"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "da8633d8-fe59-48a4-a9b8-eabaff9530c7"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

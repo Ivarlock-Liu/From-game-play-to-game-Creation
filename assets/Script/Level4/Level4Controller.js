@@ -1,17 +1,11 @@
 cc.Class({
     extends: cc.Component,
 
+    editor:{
+        //executeInEditMode:true
+    },
+    
     properties: {
-        // foo: {
-        //    default: null,      // The default value will be used only when the component attaching
-        //                           to a node for the first time
-        //    url: cc.Texture2D,  // optional, default is typeof default
-        //    serializable: true, // optional, default is true
-        //    visible: true,      // optional, default is true
-        //    displayName: 'Foo', // optional
-        //    readonly: false,    // optional, default is false
-        // },
-        // ...
         keys:{
             default:[],
             type:[cc.Node]
@@ -39,6 +33,10 @@ cc.Class({
         bird:{
             default:null,
             type:cc.Node
+        },
+        zombieContainer:{
+            default:null,
+            type:cc.Node
         }
     },
 
@@ -61,6 +59,7 @@ cc.Class({
         this.robot.getComponent("PlayerController").game = this;
         this.bird.getComponent("bird").game = this;
         this.bird.active = false;
+        this.zombieContainer.active = false;
     },
 
     // called every frame, uncomment this function to activate update callback
@@ -70,8 +69,7 @@ cc.Class({
     
     init:function(){
         var self = this;
-        for(var i in this.keys)
-        {
+        for(var i in this.keys){
             this.keys[i].addComponent("keyProp");
             this.keys[i].getComponent("keyProp").keyValue = 65 + (i - 0);
             this.keys[i].getComponent("keyProp").keySprite = this.keys[i].getComponent(cc.Sprite).spriteFrame;
@@ -169,64 +167,7 @@ cc.Class({
             }
         }
     },
-    setInputControl: function () {
-		var self = this;
-		var onKeyPressed = function (keyCode, event) {
-			switch (keyCode) {
-			    case self.myUp:
-                    self.playerController.moveUp = true;
-                    self.playerController.myAnimator.play("robotRun");
-				    break;
-			    case self.myDown:
-			        self.playerController.moveDown = true;
-                    self.playerController.myAnimator.play("robotRun");
-				    break;
-				case self.myLeft:
-				    self.playerController.moveLeft = true;
-                    self.robot.scaleX = -1;
-                    self.playerController.myAnimator.play("robotRun");
-				    break;
-				case self.myRight:
-			        self.playerController.moveRight = true;
-                    self.robot.scaleX = 1;
-                    self.playerController.myAnimator.play("robotRun");
-				    break;
-				case self.myAttack:
-                    self.playerController.myAnimator.play("robotShoot");
-				    break;
-			}
-		};
-		var onKeyReleased = function (keyCode, event) {
-			switch (keyCode) {
-			    case self.myUp:
-                    self.playerController.moveUp = false;
-                    break;
-			    case self.myDown:
-			        self.playerController.moveDown = false;
-                    break;
-				case self.myLeft:
-				    self.playerController.moveLeft = false;
-                    break;
-				case self.myRight:
-			        self.playerController.moveRight = false;
-                    break;
-				case self.myAttack:
-                    self.playerController.myAnimator.play("robotRun");
-				    break;
-			}
-			if(!self.playerController.moveUp && !self.playerController.moveDown && !self.playerController.moveLeft && !self.playerController.moveRight){
-                self.playerController.myAnimator.play("robotIdle");			    
-			}
-		};
-		if(this.currentMode){
-		    // add keyboard event listener
-	    	cc.eventManager.addListener({
-		    	event: cc.EventListener.KEYBOARD,
-		    	onKeyPressed,
-		    	onKeyReleased,
-		    }, self.node);
-		}
-	},
+    
 	allBinded:function(){
 	    return (this.myUp && this.myDown&& this.myLeft&& this.myRight&& this.myAttack);
 	},
@@ -243,7 +184,7 @@ cc.Class({
                 this.btnIcons[i].active = false;
             }
             this.bird.active = true;
-            this.setInputControl();
+            this.zombieContainer.active = true;        
         }else{
             this.textLabel.string = "You have to bind all keys that needed!";
         }

@@ -1,12 +1,36 @@
 {
   "collision-matrix": [
     [
+      true,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      true,
       true
+    ],
+    [
+      false,
+      true,
+      false,
+      true
+    ],
+    [
+      false,
+      true,
+      true,
+      false
     ]
   ],
   "excluded-modules": [],
   "group-list": [
-    "default"
+    "default",
+    "player",
+    "enemy",
+    "Shredder"
   ],
   "start-scene": "current"
 }
