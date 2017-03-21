@@ -42,7 +42,15 @@ cc.Class({
             default:null,
             type:cc.Node
         },
+        nextBtn:{
+            default:null,
+            type:cc.Node
+        },
         timeDisplay: {
+		    default:null,
+			type: cc.Label
+		},
+        infoDisplay: {
 		    default:null,
 			type: cc.Label
 		},
@@ -72,6 +80,8 @@ cc.Class({
         this.playBtn.active = true;
         this.timer = 0;
         this.timeDisplay.enabled = false;
+        this.infoDisplay.enabled = false;
+        this.nextBtn.active = false; 
     },
 
     // called every frame, uncomment this function to activate update callback
@@ -207,13 +217,23 @@ cc.Class({
         }
     },
     updateTime:function(){
-        this.timeDisplay.string = "Time Limit: " + (this.timeLimit--).toString();
+        this.timeDisplay.string = "Time Limit: " + (--this.timeLimit).toString();
         if(this.timeLimit <= 0){
             this.unschedule(this.updateTime);
             this.win();
         }
     },
     win:function(){
-
-    }
+        this.timeDisplay.enabled = false;
+        this.infoDisplay.enabled = true;
+        this.infoDisplay.string = "Congratulations! you win! Please click 'Next' button.";
+        this.playerController.stopMove();
+        this.unschedule(this.updateTime);
+        this.zombieContainer.active = false;
+        this.bird.active = false;
+        this.nextBtn.active = true;
+    },
+    next:function(){
+        cc.director.loadScene("GameOver");  
+    },
 });

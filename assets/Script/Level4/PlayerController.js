@@ -13,7 +13,7 @@ cc.Class({
         // },
         // ...
         speed: 300,
-        health: 70,
+        maxHealth: 50,
         bulletPrefab:{
             default:null,
             type:cc.Prefab
@@ -23,6 +23,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+        this.health = this.maxHealth;
         this.setInputControl();
         this.moveUp = false;
         this.moveDown = false;
@@ -69,7 +70,7 @@ cc.Class({
 
     takeDamage:function(){
         this.health -= 10;
-        this.hpBg.width -= 10;
+        this.hpBg.width -= (10/this.maxHealth) * 70;
         this.manager.enabled = false;
         if(this.health > 0){
             cc.eventManager.pauseTarget(this.node);
@@ -82,7 +83,9 @@ cc.Class({
             this.game.zombieContainer.active = false;
             this.stopMove();
             this.myAnimator.play("robotDead");
-            cc.log("you dead!");
+            this.game.infoDisplay.enabled = true;
+            this.game.timeDisplay.enabled = false;
+            this.game.bird.active = false;
         }
     },
     resumeListener:function(){
@@ -146,6 +149,7 @@ cc.Class({
 				case self.game.myAttack:
                     self.attack = false;
                     self.myAnimator.stop("robotShoot");
+                    self.myAnimator.play("robotRun");
 				    break;
 			}
 			if(!self.moveUp && !self.moveDown && !self.moveLeft && !self.moveRight && !self.attack){
