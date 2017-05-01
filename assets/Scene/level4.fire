@@ -253,7 +253,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 642.5,
+      "width": 655.83,
       "height": 33.33
     },
     "_children": [],
@@ -299,7 +299,7 @@
       "__uuid__": "db430de0-b597-4617-a452-fd207e71dbd1"
     },
     "_isSystemFontUsed": false,
-    "_N$string": "Sorry, you dead. Click 'Test' button to try again!",
+    "_N$string": "Sorry, you dead. Click 'BIND' button to try again!",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$overflow": 0
@@ -4061,7 +4061,7 @@
       "__uuid__": "db430de0-b597-4617-a452-fd207e71dbd1"
     },
     "_isSystemFontUsed": false,
-    "_N$string": "TEST",
+    "_N$string": "BIND",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$overflow": 1
@@ -4291,7 +4291,7 @@
       "__uuid__": "db430de0-b597-4617-a452-fd207e71dbd1"
     },
     "_isSystemFontUsed": false,
-    "_N$string": "PLAY",
+    "_N$string": "GAME",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$overflow": 1

@@ -9,8 +9,7 @@ const STATE=cc.Enum({
    level3_1:8,
    level3_2:9,
    level4_1:10,
-   level4_2:11,
-   
+   level4_2:11,   
 });
 
 module.exports={
@@ -72,7 +71,7 @@ cc.Class({
                     '\n2. Create user interface'+
                     '\n3. Write some scripts and bind them with game components'+
                     "\n\nPress 'Enter' to continue.";
-        this.str2 = 'This game has three levels.'+
+        this.str2 = 'This game has four levels.'+
                     ' In each level, you will create a part of demo game by playing a game.'+
                     "\n\nIn level1, you need to collect images resources to build 'Minesweeper'."+
                     "The following is the interface of Minesweeper."+
@@ -107,16 +106,20 @@ cc.Class({
 		this.str4_1 = "In level4, you will learn how to bind keys in Cocos Creator." +
                       "\n\n'eventManager' is a function in Cocos Creator which can listen some event like key pressed, key released..." +
                       "\n\nPress 'Enter' to continue.";
-        this.str4_2 = "There are two modes in this level, they are test mode and play mode. " +
-                      "\n\nIn test mode, you will be able to bind key with specific actions and it will show you the code to bind key. " +
-                      "\n\nAfter you bind all keys, you can enter play mode, and you will control a robot to defeat zombies. The key bindings will change frequently." +
+        this.str4_2 = "There are two modes in this level, they are bind mode and game mode. " +
+                      "\n\nIn bind mode, you will be able to bind key with specific actions and it will show you the code to bind key. " +
+                      "\n\nAfter you bind all keys, you can enter game mode, and you will control a robot to defeat zombies. The key bindings will change frequently." +
                       "\n\nPress 'Enter' to try level4, Let's check out how to bind keys now!";
     },
 
     // called every frame, uncomment this function to activate update callback
     update: function (dt) {
-        console.log(controller.myState);
-        if(controller.myState==STATE.level1_1){
+        console.log("current state is: " + controller.myState);
+        this.finiteStateMachine();
+    },
+    
+    finiteStateMachine:function(){
+        if(controller.myState==STATE.level1_1){ 
             this.state1_1();
         }else if(controller.myState==STATE.level1_2){
             this.state1_2();
@@ -140,7 +143,7 @@ cc.Class({
             this.state4_2();
         }
     },
-    
+
     state1_1:function(){
         this.text.string=this.str1;
         var self=this;

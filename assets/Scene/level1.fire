@@ -36,7 +36,7 @@
         "__id__": 2
       },
       {
-        "__id__": 63
+        "__id__": 65
       }
     ],
     "_localZOrder": 0,
@@ -104,7 +104,7 @@
         "__id__": 53
       },
       {
-        "__id__": 55
+        "__id__": 57
       }
     ],
     "_rotationX": 0,
@@ -126,10 +126,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 61
+        "__id__": 63
       },
       {
-        "__id__": 62
+        "__id__": 64
       }
     ],
     "_prefab": null,
@@ -2117,7 +2117,11 @@
       "width": 96,
       "height": 67
     },
-    "_children": [],
+    "_children": [
+      {
+        "__id__": 54
+      }
+    ],
     "_rotationX": 0,
     "_rotationY": 0,
     "_scaleX": 1,
@@ -2137,11 +2141,85 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 54
+        "__id__": 56
       }
     ],
     "_prefab": null,
     "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "Assets",
+    "_objFlags": 0,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_parent": {
+      "__id__": 53
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 120,
+      "height": 44.44
+    },
+    "_children": [],
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 66
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_tag": -1,
+    "_opacityModifyRGB": false,
+    "_id": "9e40edrZdBOOJGoUy8d2zd9",
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 55
+      }
+    ],
+    "_prefab": null,
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 54
+    },
+    "_enabled": true,
+    "_useOriginalSize": false,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
+    "_lineHeight": 40,
+    "_enableWrapText": true,
+    "_N$file": {
+      "__uuid__": "db430de0-b597-4617-a452-fd207e71dbd1"
+    },
+    "_isSystemFontUsed": false,
+    "_N$string": "assets",
+    "_N$horizontalAlign": 0,
+    "_N$verticalAlign": 0,
+    "_N$overflow": 0
   },
   {
     "__type__": "cc.Sprite",
@@ -2197,7 +2275,7 @@
     },
     "_children": [
       {
-        "__id__": 56
+        "__id__": 58
       }
     ],
     "_rotationX": 0,
@@ -2219,10 +2297,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 58
+        "__id__": 60
       },
       {
-        "__id__": 59
+        "__id__": 61
       }
     ],
     "_prefab": null,
@@ -2242,7 +2320,7 @@
     },
     "_cascadeOpacityEnabled": true,
     "_parent": {
-      "__id__": 55
+      "__id__": 57
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2274,7 +2352,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 57
+        "__id__": 59
       }
     ],
     "_prefab": null,
@@ -2285,7 +2363,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 56
+      "__id__": 58
     },
     "_enabled": true,
     "_useOriginalSize": false,
@@ -2307,7 +2385,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 55
+      "__id__": 57
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -2333,7 +2411,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 55
+      "__id__": 57
     },
     "_enabled": true,
     "transition": 2,
@@ -2361,7 +2439,7 @@
     },
     "clickEvents": [
       {
-        "__id__": 60
+        "__id__": 62
       }
     ],
     "_N$interactable": true,
@@ -2387,7 +2465,7 @@
       "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
     },
     "_N$target": {
-      "__id__": 55
+      "__id__": 57
     }
   },
   {
@@ -2489,7 +2567,7 @@
       "__id__": 40
     },
     "nextButton": {
-      "__id__": 55
+      "__id__": 57
     },
     "replayButton": {
       "__id__": 41
@@ -2550,7 +2628,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 64
+        "__id__": 66
       }
     ],
     "_prefab": null,
@@ -2561,7 +2639,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 63
+      "__id__": 65
     },
     "_enabled": true,
     "_spriteFrame": {
